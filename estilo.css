@@ -1,0 +1,407 @@
+/* Reset básico e configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f5f5f0; /* Fundo bege claro das imagens */
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+/* --- Barra de Navegação --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-box {
+    background-color: #1a4b9b;
+    color: white;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.logo-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #444;
+}
+
+.accessibility-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.font-btn, .theme-btn, .contrast-btn {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.theme-btn.dark {
+    background-color: #1a4b9b;
+    color: white;
+    border-color: #1a4b9b;
+}
+
+.font-size-indicator {
+    font-size: 0.8rem;
+}
+
+/* --- Seção Hero --- */
+.hero-section {
+    display: flex;
+    padding: 60px 40px;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.badge-wcag {
+    display: inline-block;
+    border: 1px solid #1a4b9b;
+    color: #1a4b9b;
+    padding: 5px 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    background: #fff;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.highlight-blue {
+    color: #1a4b9b;
+}
+
+.hero-content p {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    max-width: 600px;
+}
+
+.italic-note {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background-color: #1a4b9b;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid #333;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+}
+
+.hero-cards {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info-card {
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.info-card h3 {
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.info-card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* --- Seção Formulário --- */
+.form-section {
+    display: flex;
+    padding: 60px 40px;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f0f0eb;
+    flex-wrap: wrap;
+}
+
+.form-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.subtitle-blue {
+    color: #1a4b9b;
+    font-weight: bold;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.checklist {
+    list-style: none;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.checklist li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.check-icon {
+    color: #1a4b9b;
+    font-weight: bold;
+}
+
+.info-box {
+    border: 2px solid #1a4b9b;
+    padding: 20px;
+    background: #fff;
+}
+
+.form-wrapper {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 40px;
+    border: 1px solid #eee;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.required-star {
+    color: #1a4b9b;
+}
+
+.helper-text {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    font-size: 1rem;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: 3px solid #1a4b9b;
+    outline-offset: 2px;
+}
+
+.error-message {
+    color: #cc0000;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: none;
+}
+
+.submit-btn {
+    width: 100%;
+    text-align: center;
+}
+
+.footer-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 15px;
+}
+
+/* --- Rodapé --- */
+footer {
+    background-color: #fff;
+    padding: 40px;
+    border-top: 1px solid #ccc;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-brand {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-brand p {
+    margin: 15px 0;
+    max-width: 300px;
+    color: #444;
+}
+
+.footer-columns {
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.col h4 {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.col ul {
+    list-style: none;
+}
+
+.col ul li {
+    margin-bottom: 10px;
+}
+
+.col ul a {
+    text-decoration: none;
+    color: #444;
+}
+
+.footer-bottom {
+    border-top: 1px solid #eee;
+    margin-top: 30px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 30px auto 0;
+    font-size: 0.9rem;
+    color: #555;
+    flex-wrap: wrap;
+}
+
+.certification {
+    color: #1a4b9b;
+}
+
+.help-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid #ccc;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Responsividade para celular */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .accessibility-controls {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .hero-section, .form-section {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
+}
