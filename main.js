@@ -1,73 +1,63 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
+    // Elementos
+    const body = document.body;
+    const fontSizeDisplay = document.getElementById('font-size-display');
     
-    // Lógica de validação do formulário
-    const form = document.getElementById('contactForm');
+    // Botões de Fonte
+    const btnFontDown = document.getElementById('btn-font-down');
+    const btnFontUp = document.getElementById('btn-font-up');
+    
+    // Botões de Tema
+    const btnLight = document.getElementById('btn-theme-light');
+    const btnDark = document.getElementById('btn-theme-dark');
+    const btnContrast = document.getElementById('btn-theme-contrast');
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Impede o envio tradicional para testarmos a validação
+    // 1. Lógica de Tamanho da Fonte
+    let currentFontSize = 16; // Valor inicial em pixels
 
-        let isValid = true;
-        const formGroups = document.querySelectorAll('.form-group');
+    function updateFontSize() {
+        // Aplica o tamanho no root do CSS (afeta tudo que usa 'rem')
+        document.documentElement.style.fontSize = currentFontSize + 'px';
+        fontSizeDisplay.textContent = currentFontSize + 'px';
+    }
 
-        // Limpa erros antigos
-        document.querySelectorAll('.error-message').forEach(el => {
-            el.style.display = 'none';
-            el.textContent = '';
-            el.setAttribute('aria-hidden', 'true');
-        });
-        document.querySelectorAll('.form-group input, .form-group textarea').forEach(el => {
-            el.style.borderColor = '#ccc';
-        });
-
-        // Valida cada campo
-        formGroups.forEach(group => {
-            const input = group.querySelector('input, textarea');
-            const errorDiv = group.querySelector('.error-message');
-            let hasError = false;
-
-            if (input.hasAttribute('required') && input.value.trim() === '') {
-                hasError = true;
-                errorDiv.textContent = 'Este campo é obrigatório.';
-            } else if (input.type === 'email' && input.value.trim() !== '') {
-                // Validação simples de email
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailPattern.test(input.value.trim())) {
-                    hasError = true;
-                    errorDiv.textContent = 'Por favor, insira um e-mail válido.';
-                }
-            }
-
-            // Verifica tamanho da mensagem (mínimo 10 caracteres)
-            if (input.id === 'mensagem' && input.value.trim().length < 10 && input.value.trim() !== '') {
-                hasError = true;
-                errorDiv.textContent = 'A mensagem deve ter pelo menos 10 caracteres.';
-            }
-
-            if (hasError) {
-                isValid = false;
-                input.style.borderColor = '#cc0000'; // Vermelho
-                errorDiv.style.display = 'block';
-                errorDiv.removeAttribute('aria-hidden');
-            }
-        });
-
-        if (isValid) {
-            alert('Formulário enviado com sucesso! (Simulação)');
-            form.reset(); // Limpa o formulário após envio bem-sucedido
-        } else {
-            // Foca no primeiro erro encontrado
-            const firstError = document.querySelector('.error-message[style*="display: block"]');
-            if (firstError) {
-                firstError.previousElementSibling.previousElementSibling.focus(); // Volta para o input do erro
-            }
+    btnFontUp.addEventListener('click', () => {
+        if (currentFontSize < 24) { // Limite máximo
+            currentFontSize += 2;
+            updateFontSize();
         }
     });
 
-    // Exemplo visual extra: como o botão de "alto contraste" poderia funcionar
-    const contrastBtn = document.querySelector('.contrast-btn');
-    contrastBtn.addEventListener('click', function() {
-        document.body.style.backgroundColor = document.body.style.backgroundColor === 'black' ? '#f5f5f0' : 'black';
-        document.body.style.color = document.body.style.color === 'white' ? '#1a1a1a' : 'white';
+    btnFontDown.addEventListener('click', () => {
+        if (currentFontSize > 12) { // Limite mínimo
+            currentFontSize -= 2;
+            updateFontSize();
+        }
     });
+
+    // 2. Lógica de Troca de Temas (Claro, Escuro, Alto Contraste)
+    function setTheme(themeName) {
+        // Remove as classes de tema antigas
+        body.classList.remove('theme-dark', 'theme-contrast');
+        
+        // Remove o estado ativo de todos os botões
+        [btnLight, btnDark, btnContrast].forEach(btn => btn.classList.remove('active'));
+
+        if (themeName === 'dark') {
+            body.classList.add('theme-dark');
+            btnDark.classList.add('active');
+        } else if (themeName === 'contrast') {
+            body.classList.add('theme-contrast');
+            btnContrast.classList.add('active');
+        } else {
+            // Tema Claro (padrão)
+            btnLight.classList.add('active');
+        }
+    }
+
+    // Eventos de clique para os botões de tema
+    btnLight.addEventListener('click', () => setTheme('light'));
+    btnDark.addEventListener('click', () => setTheme('dark'));
+    btnContrast.addEventListener('click', () => setTheme('contrast'));
 
 });

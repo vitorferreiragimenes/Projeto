@@ -1,148 +1,156 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcessoDigital - Autonomia sem barreiras</title>
-    <!-- Importando o CSS externo -->
+    <title>AcessoDigital - Inclusão Digital</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
 
-    <!-- Barra de Navegação -->
-    <header class="navbar">
-        <div class="logo-area">
-            <div class="logo-box">A</div>
-            <span class="logo-text">AcessoDigital</span>
-        </div>
-        <nav>
+    <!-- Barra de Ferramentas de Acessibilidade -->
+    <nav class="toolbar" role="navigation" aria-label="Ferramentas de acessibilidade">
+        <div class="container toolbar-content">
+            <a href="#" class="logo">
+                <span class="logo-icon">A</span> AcessoDigital
+            </a>
             <ul class="nav-links">
                 <li><a href="#">Início</a></li>
                 <li><a href="#">Recursos</a></li>
                 <li><a href="#">Formulário</a></li>
                 <li><a href="#">Contato</a></li>
             </ul>
-        </nav>
-        <div class="accessibility-controls">
-            <button class="font-btn">A-</button>
-            <span class="font-size-indicator">16px</span>
-            <button class="font-btn">A+</button>
-            <button class="theme-btn dark">* CLARO</button>
-            <button class="theme-btn">☾ ESCURO</button>
-            <button class="contrast-btn">◧ ALTO CONTRASTE</button>
-        </div>
-    </header>
-
-    <main>
-        <!-- Seção Hero -->
-        <section class="hero-section">
-            <div class="hero-content">
-                <div class="badge-wcag">
-                    <span>● WCAG 2.2 — NÍVEL AAA</span>
-                </div>
-                <h1>Autonomia digital <span class="highlight-blue">sem barreiras</span>.</h1>
-                <p>Esta interface foi construída para funcionar com você — não contra você. Navegação por teclado, leitores de tela, zoom nativo e copiar/colar são totalmente suportados e incentivados.</p>
-                <p class="italic-note">Nenhuma função nativa do seu navegador ou tecnologia assistiva é bloqueada aqui.</p>
-                
-                <div class="hero-buttons">
-                    <a href="#form-section" class="btn-primary">Ver formulário acessível →</a>
-                    <button class="btn-secondary">Saiba mais</button>
-                </div>
+            <div class="accessibility-controls">
+                <button id="btn-font-down" aria-label="Diminuir fonte">A-</button>
+                <span id="font-size-display">16px</span>
+                <button id="btn-font-up" aria-label="Aumentar fonte">A+</button>
+                <button id="btn-theme-light" class="active">* CLARO</button>
+                <button id="btn-theme-dark">C ESCURO</button>
+                <button id="btn-theme-contrast">ALTO CONTRASTE</button>
             </div>
+        </div>
+    </nav>
 
-            <div class="hero-cards">
-                <div class="info-card">
-                    <div class="card-icon">⌨️</div>
-                    <h3>Navegação completa por teclado</h3>
-                    <p>Tab, Shift+Tab, Enter e setas funcionam em todos os elementos. Estado de foco sempre visível com contorno de 3px.</p>
+    <!-- Conteúdo Principal (Hero) -->
+    <main>
+        <section class="hero-section">
+            <div class="container hero-grid">
+                <!-- Coluna Esquerda -->
+                <div class="hero-text">
+                    <div class="badge-wcag">
+                        <span class="dot"></span> WCAG 2.2 — NÍVEL AAA
+                    </div>
+                    <h1>Autonomia digital <br><span class="highlight">sem barreiras.</span></h1>
+                    <p>Esta interface foi construída para funcionar com você — não contra você. Navegação por teclado, leitores de tela, zoom nativo e copiar/colar são totalmente suportados e incentivados.</p>
+                    <p><em>Nenhuma função nativa do seu navegador ou tecnologia assistiva é bloqueada aqui.</em></p>
+                    <div class="hero-buttons">
+                        <a href="#formulario" class="btn btn-primary">Ver formulário acessível →</a>
+                        <a href="#" class="btn btn-secondary">Saiba mais</a>
+                    </div>
                 </div>
-                <div class="info-card">
-                    <div class="card-icon">🔍</div>
-                    <h3>Zoom e ampliação nativos</h3>
-                    <p>O layout não quebra em até 400% de zoom. Tamanhos relativos (rem/em) garantem escalonamento correto.</p>
-                </div>
-                <div class="info-card">
-                    <div class="card-icon">📋</div>
-                    <h3>Copiar e colar liberados</h3>
-                    <p>Nenhum campo bloqueia Ctrl+C, Ctrl+V ou a seleção de texto. Autocomplete do navegador é totalmente suportado.</p>
-                </div>
-                <div class="info-card">
-                    <div class="card-icon">🔊</div>
-                    <h3>Compatível com leitores de tela</h3>
-                    <p>Atributos ARIA, roles semânticos, live regions e labels descritivos para NVDA, JAWS e VoiceOver.</p>
+
+                <!-- Coluna Direita (Cards) -->
+                <div class="hero-cards">
+                    <div class="card">
+                        <div class="card-icon">⌨️</div>
+                        <div class="card-content">
+                            <h3>Navegação completa por teclado</h3>
+                            <p>Tab, Shift+Tab, Enter e setas funcionam em todos os elementos. Estado de foco sempre visível com contorno de 3px.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🔍</div>
+                        <div class="card-content">
+                            <h3>Zoom e ampliação nativos</h3>
+                            <p>O layout não quebra em até 400% de zoom. Tamanhos relativos (rem/em) garantem escalonamento correto.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">📋</div>
+                        <div class="card-content">
+                            <h3>Copiar e colar liberados</h3>
+                            <p>Nenhum campo bloqueia Ctrl+C, Ctrl+V ou a seleção de texto. Autocomplete do navegador é totalmente suportado.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🔊</div>
+                        <div class="card-content">
+                            <h3>Compatível com leitores de tela</h3>
+                            <p>Atributos ARIA, roles semânticos, live regions e labels descritivos para NVDA, JAWS e VoiceOver.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Seção do Formulário -->
-        <section class="form-section" id="form-section">
-            <div class="form-info">
-                <span class="subtitle-blue">DEMONSTRAÇÃO DE BOAS PRÁTICAS</span>
-                <h2>Formulário inclusivo por design.</h2>
-                <p>Este formulário exemplifica as diretrizes WCAG para formulários acessíveis: labels sempre visíveis, feedback claro, sem bloqueio de funções do navegador.</p>
-                
-                <ul class="checklist">
-                    <li><span class="check-icon">✓</span> Labels sempre visíveis acima do campo — nunca como placeholder substituído</li>
-                    <li><span class="check-icon">✓</span> Indicação clara de campos obrigatórios com label e atributo aria-required</li>
-                    <li><span class="check-icon">✓</span> Feedback de erro com role="alert" e descrição textual do problema</li>
-                    <li><span class="check-icon">✓</span> Feedback de sucesso por campo com role="status"</li>
-                    <li><span class="check-icon">✓</span> Autocomplete nativo do navegador totalmente habilitado</li>
-                    <li><span class="check-icon">✓</span> Copiar, colar e seleção de texto liberados sem restrições</li>
-                    <li><span class="check-icon">✓</span> Foco visível em todos os campos com contorno de 3px</li>
-                    <li><span class="check-icon">✓</span> Placeholder é complementar, não substitui o label</li>
-                </ul>
+        <section id="formulario" class="form-section">
+            <div class="container form-grid">
+                <!-- Texto do Formulário -->
+                <div class="form-text">
+                    <div class="section-label">DEMONSTRAÇÃO DE BOAS PRÁTICAS</div>
+                    <h2>Formulário inclusivo por <span class="highlight">design.</span></h2>
+                    <p>Este formulário exemplifica as diretrizes WCAG para formulários acessíveis: labels sempre visíveis, feedback claro, sem bloqueio de funções do navegador.</p>
+                    
+                    <ul class="checklist">
+                        <li><span class="check-icon">✓</span> Labels sempre visíveis acima do campo — nunca como placeholder substituto</li>
+                        <li><span class="check-icon">✓</span> Indicação clara de campos obrigatórios com label e atributo aria-required</li>
+                        <li><span class="check-icon">✓</span> Feedback de erro com role="alert" e descrição textual do problema</li>
+                        <li><span class="check-icon">✓</span> Feedback de sucesso por campo com role="status"</li>
+                        <li><span class="check-icon">✓</span> Autocomplete nativo do navegador totalmente habilitado (autocomplete="email", etc.)</li>
+                        <li><span class="check-icon">✓</span> Copiar, colar e seleção de texto liberados sem restrições</li>
+                        <li><span class="check-icon">✓</span> Foco visível em todos os campos com contorno de 3px</li>
+                        <li><span class="check-icon">✓</span> Placeholder é complementar, não substitui o label</li>
+                    </ul>
 
-                <div class="info-box">
-                    <p><strong>Nota para usuários:</strong> Copiar e colar (Ctrl+C / Ctrl+V) é totalmente permitido em todos os campos. O preenchimento automático do navegador também é suportado — use como preferir.</p>
+                    <div class="note-box">
+                        <strong>Nota para usuários:</strong> Copiar e colar (Ctrl+C / Ctrl+V) é totalmente permitido em todos os campos. O preenchimento automático do navegador também é suportado — use como preferir.
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-wrapper">
-                <form id="contactForm" novalidate>
-                    <div class="form-group">
-                        <label for="nome">Nome completo <span class="required-star">*</span></label>
-                        <span class="helper-text">Digite seu nome como preferir.</span>
-                        <input type="text" id="nome" placeholder="Ex: Ana Paula Ferreira" required aria-required="true">
-                        <div class="error-message" id="nome-error" role="alert" aria-hidden="true"></div>
-                    </div>
+                <!-- Formulário -->
+                <div class="form-wrapper">
+                    <form>
+                        <div class="form-group">
+                            <label for="nome">Nome completo <span class="required">*</span></label>
+                            <span class="helper-text">Digite seu nome como preferir.</span>
+                            <input type="text" id="nome" placeholder="Ex: Ana Paula Ferreira" autocomplete="name" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="email">Endereço de e-mail <span class="required-star">*</span></label>
-                        <span class="helper-text">Usaremos apenas para responder seu contato.</span>
-                        <input type="email" id="email" placeholder="ana@exemplo.com.br" required aria-required="true">
-                        <div class="error-message" id="email-error" role="alert" aria-hidden="true"></div>
-                    </div>
+                        <div class="form-group">
+                            <label for="email">Endereço de e-mail <span class="required">*</span></label>
+                            <span class="helper-text">Usaremos apenas para responder seu contato.</span>
+                            <input type="email" id="email" placeholder="ex: ana@exemplo.com.br" autocomplete="email" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="mensagem">Mensagem <span class="required-star">*</span></label>
-                        <span class="helper-text">Mínimo de 10 caracteres. Sem restrições para copiar e colar.</span>
-                        <textarea id="mensagem" rows="4" placeholder="Descreva como podemos ajudar você..." required aria-required="true"></textarea>
-                        <div class="error-message" id="mensagem-error" role="alert" aria-hidden="true"></div>
-                    </div>
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem <span class="required">*</span></label>
+                            <span class="helper-text">Mínimo de 10 caracteres. Sem restrições para copiar e colar.</span>
+                            <textarea id="mensagem" placeholder="Descreva como podemos ajudar você..." rows="4" required></textarea>
+                        </div>
 
-                    <button type="submit" class="btn-primary submit-btn">Enviar mensagem</button>
-                    <p class="footer-note">Campos marcados com * são obrigatórios.</p>
-                </form>
+                        <button type="submit" class="btn btn-primary full-width">Enviar mensagem</button>
+                        <p class="form-footer">Campos marcados com * são obrigatórios.</p>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
 
     <!-- Rodapé -->
     <footer>
-        <div class="footer-content">
+        <div class="container footer-grid">
             <div class="footer-brand">
-                <div class="logo-area">
-                    <div class="logo-box">A</div>
-                    <span class="logo-text">AcessoDigital</span>
-                </div>
+                <a href="#" class="logo">
+                    <span class="logo-icon">A</span> AcessoDigital
+                </a>
                 <p>Comprometidos com a construção de experiências digitais que respeitam e ampliam a autonomia de todos os usuários.</p>
-                <div class="badge-wcag">
-                    <span>♿ WCAG 2.2 • Nível AA</span>
+                <div class="badge-wcag small">
+                    <span class="icon">♿</span> WCAG 2.2 - Nível AA
                 </div>
             </div>
-            
-            <div class="footer-columns">
-                <div class="col">
+            <div class="footer-links">
+                <div>
                     <h4>RECURSOS</h4>
                     <ul>
                         <li><a href="#">Guia WCAG 2.2</a></li>
@@ -151,7 +159,7 @@
                         <li><a href="#">Leitores de tela</a></li>
                     </ul>
                 </div>
-                <div class="col">
+                <div>
                     <h4>COMUNIDADE</h4>
                     <ul>
                         <li><a href="#">Fórum de suporte</a></li>
@@ -160,7 +168,7 @@
                         <li><a href="#">Webinars</a></li>
                     </ul>
                 </div>
-                <div class="col">
+                <div>
                     <h4>LEGAL</h4>
                     <ul>
                         <li><a href="#">Política de privacidade</a></li>
@@ -171,14 +179,14 @@
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 AcessoDigital. Feito com compromisso real com a inclusão.</p>
-            <p class="certification">♿ Declaração de acessibilidade: <strong>conformidade WCAG 2.2 AA</strong></p>
+        <div class="container footer-bottom">
+            <p>© 2025 AcessoDigital. Feito com compromisso real com a inclusão.</p>
+            <p class="footer-conformidade">♿ Declaração de acessibilidade: <a href="#">conformidade WCAG 2.2 AA</a></p>
         </div>
-        <button class="help-btn" aria-label="Ajuda e recursos">?</button>
     </footer>
 
-    <!-- Importando o JS externo -->
+    <div class="help-icon">?</div>
+
     <script src="script.js"></script>
 </body>
 </html>
